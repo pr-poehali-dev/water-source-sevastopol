@@ -13,14 +13,21 @@ export default function Index() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-cyan-900 relative overflow-hidden">
+      {/* Ocean Wave Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute bottom-0 left-0 w-full h-96 bg-gradient-to-t from-cyan-500/20 via-blue-500/10 to-transparent transform rotate-1 -translate-y-12"></div>
+        <div className="absolute bottom-0 left-0 w-full h-80 bg-gradient-to-t from-blue-400/30 via-cyan-400/15 to-transparent transform -rotate-1 -translate-y-8"></div>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-teal-300/40 via-blue-300/20 to-transparent transform rotate-2 -translate-y-4"></div>
+      </div>
+
       {/* Header */}
-      <header className="fixed top-0 w-full bg-white/90 backdrop-blur-md border-b border-blue-100 z-50">
+      <header className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-md border-b border-cyan-400/20 z-50">
         <div className="container mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
-              <Icon name="Droplets" className="text-primary" size={32} />
-              <span className="text-2xl font-bold text-primary">Источник Севастополя</span>
+              <Icon name="Waves" className="text-cyan-400" size={32} />
+              <span className="text-2xl font-bold text-white">Источник Севастополя</span>
             </div>
             
             <nav className="hidden md:flex space-x-8">
@@ -34,8 +41,8 @@ export default function Index() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className={`text-sm font-medium transition-colors hover:text-primary ${
-                    activeSection === item.id ? 'text-primary' : 'text-gray-600'
+                  className={`text-sm font-medium transition-colors hover:text-cyan-300 ${
+                    activeSection === item.id ? 'text-cyan-300' : 'text-slate-300'
                   }`}
                 >
                   {item.label}
@@ -43,7 +50,7 @@ export default function Index() {
               ))}
             </nav>
 
-            <Button className="hidden md:flex">
+            <Button className="hidden md:flex bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 border-0">
               <Icon name="Phone" size={16} className="mr-2" />
               Заказать
             </Button>
@@ -52,24 +59,26 @@ export default function Index() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="pt-24 pb-16 px-4">
+      <section id="home" className="pt-32 pb-24 px-4 relative z-10">
         <div className="container mx-auto text-center">
           <div className="max-w-4xl mx-auto">
-            <h1 className="text-5xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-6xl md:text-7xl font-bold text-white mb-8 drop-shadow-2xl">
               Источник
-              <span className="text-primary block">Севастополя</span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 to-blue-300 block">
+                Севастополя
+              </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-              Премиальная питьевая вода с современными технологиями очистки и розлива.
-              Кристальная чистота природы в каждой капле.
+            <p className="text-xl text-slate-200 mb-10 leading-relaxed max-w-2xl mx-auto drop-shadow-lg">
+              Премиальная питьевая вода из глубин Чёрного моря. 
+              Современные технологии очистки сохраняют кристальную чистоту океана.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" className="text-lg px-8">
+            <div className="flex flex-col sm:flex-row gap-6 justify-center">
+              <Button size="lg" className="text-lg px-10 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-xl border-0">
                 <Icon name="ShoppingCart" size={20} className="mr-2" />
                 Заказать воду
               </Button>
-              <Button variant="outline" size="lg" className="text-lg px-8">
-                <Icon name="Info" size={20} className="mr-2" />
+              <Button variant="outline" size="lg" className="text-lg px-10 py-4 border-cyan-300 text-cyan-300 hover:bg-cyan-300/10 shadow-xl">
+                <Icon name="Droplets" size={20} className="mr-2" />
                 О качестве
               </Button>
             </div>
@@ -78,48 +87,48 @@ export default function Index() {
       </section>
 
       {/* About Product Section */}
-      <section id="product" className="py-16 px-4 bg-white">
+      <section id="product" className="py-20 px-4 bg-gradient-to-b from-slate-800 to-slate-900 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">О нашем продукте</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Мы используем передовые технологии для создания воды высочайшего качества
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">О нашем продукте</h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Мы используем передовые технологии для создания воды океанического качества
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center border-blue-100 hover:shadow-lg transition-shadow">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/30 hover:border-cyan-300/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Beaker" className="text-primary" size={32} />
+                <div className="w-20 h-20 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <Icon name="Beaker" className="text-white" size={36} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Современная очистка</h3>
-                <p className="text-gray-600">
-                  Многоступенчатая система фильтрации с использованием новейших технологий
+                <h3 className="text-2xl font-semibold mb-4 text-white">Глубоководная очистка</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Многоступенчатая система фильтрации, имитирующая естественные океанические процессы
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center border-blue-100 hover:shadow-lg transition-shadow">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/30 hover:border-cyan-300/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Factory" className="text-primary" size={32} />
+                <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <Icon name="Factory" className="text-white" size={36} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Автоматизированный розлив</h3>
-                <p className="text-gray-600">
-                  Полностью автоматизированная линия розлива без контакта с внешней средой
+                <h3 className="text-2xl font-semibold mb-4 text-white">Морской стандарт</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Автоматизированная линия розлива с защитой от внешних воздействий
                 </p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center border-blue-100 hover:shadow-lg transition-shadow">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/30 hover:border-cyan-300/50 transition-all duration-300 hover:shadow-2xl hover:shadow-cyan-500/10">
               <CardContent className="p-0">
-                <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Icon name="Award" className="text-primary" size={32} />
+                <div className="w-20 h-20 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                  <Icon name="Award" className="text-white" size={36} />
                 </div>
-                <h3 className="text-xl font-semibold mb-3">Премиальное качество</h3>
-                <p className="text-gray-600">
-                  Превосходим все стандарты качества питьевой воды в России
+                <h3 className="text-2xl font-semibold mb-4 text-white">Океанское качество</h3>
+                <p className="text-slate-300 leading-relaxed">
+                  Превосходим международные стандарты морской воды премиум-класса
                 </p>
               </CardContent>
             </Card>
@@ -128,74 +137,74 @@ export default function Index() {
       </section>
 
       {/* Quality Section */}
-      <section id="quality" className="py-16 px-4 bg-blue-50">
+      <section id="quality" className="py-20 px-4 bg-gradient-to-b from-blue-900/50 to-cyan-900/50 relative">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Качество и сертификаты</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Наша продукция соответствует всем требованиям безопасности и качества
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">Качество и сертификаты</h2>
+            <p className="text-xl text-slate-200 max-w-3xl mx-auto">
+              Наша продукция соответствует всем требованиям морских стандартов качества
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-16 items-center">
             <div>
-              <div className="space-y-6">
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-white" size={16} />
+              <div className="space-y-8">
+                <div className="flex items-start space-x-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg">
+                    <Icon name="Check" className="text-white" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">ГОСТ Р 52109-2003</h3>
-                    <p className="text-gray-600">Соответствие государственным стандартам качества питьевой воды</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">ГОСТ Р 52109-2003</h3>
+                    <p className="text-slate-300 leading-relaxed">Соответствие государственным стандартам качества питьевой воды</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-white" size={16} />
+                <div className="flex items-start space-x-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-blue-400 to-cyan-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg">
+                    <Icon name="Check" className="text-white" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">ISO 22000</h3>
-                    <p className="text-gray-600">Международный стандарт безопасности пищевой продукции</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">ISO 22000</h3>
+                    <p className="text-slate-300 leading-relaxed">Международный стандарт безопасности пищевой продукции</p>
                   </div>
                 </div>
 
-                <div className="flex items-start space-x-4">
-                  <div className="w-8 h-8 bg-primary rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                    <Icon name="Check" className="text-white" size={16} />
+                <div className="flex items-start space-x-6">
+                  <div className="w-12 h-12 bg-gradient-to-br from-teal-400 to-blue-500 rounded-full flex items-center justify-center flex-shrink-0 mt-1 shadow-lg">
+                    <Icon name="Check" className="text-white" size={20} />
                   </div>
                   <div>
-                    <h3 className="text-lg font-semibold mb-2">Лабораторные исследования</h3>
-                    <p className="text-gray-600">Ежедневный контроль качества в аккредитованной лаборатории</p>
+                    <h3 className="text-xl font-semibold mb-3 text-white">Морские исследования</h3>
+                    <p className="text-slate-300 leading-relaxed">Ежедневный контроль качества в океанографической лаборатории</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              <Card className="p-6 border-blue-200">
+            <div className="space-y-6">
+              <Card className="p-8 bg-gradient-to-r from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold">Минерализация</span>
-                    <span className="text-primary font-bold">200-400 мг/л</span>
+                    <span className="font-semibold text-white text-lg">Минерализация</span>
+                    <span className="text-cyan-300 font-bold text-xl">200-400 мг/л</span>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="p-6 border-blue-200">
+              <Card className="p-8 bg-gradient-to-r from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold">pH уровень</span>
-                    <span className="text-primary font-bold">7.2-7.8</span>
+                    <span className="font-semibold text-white text-lg">pH уровень</span>
+                    <span className="text-cyan-300 font-bold text-xl">7.2-7.8</span>
                   </div>
                 </CardContent>
               </Card>
 
-              <Card className="p-6 border-blue-200">
+              <Card className="p-8 bg-gradient-to-r from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
                 <CardContent className="p-0">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold">Жёсткость</span>
-                    <span className="text-primary font-bold">2-4 мг-экв/л</span>
+                    <span className="font-semibold text-white text-lg">Солёность</span>
+                    <span className="text-cyan-300 font-bold text-xl">2-4 мг-экв/л</span>
                   </div>
                 </CardContent>
               </Card>
@@ -205,57 +214,58 @@ export default function Index() {
       </section>
 
       {/* Delivery Section */}
-      <section id="delivery" className="py-16 px-4 bg-white">
+      <section id="delivery" className="py-20 px-4 bg-gradient-to-b from-slate-800 to-slate-900">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Доставка и заказ</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Быстрая и надёжная доставка по всему Севастополю
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">Доставка и заказ</h2>
+            <p className="text-xl text-slate-300 max-w-3xl mx-auto">
+              Быстрая и надёжная доставка морского качества по всему Севастополю
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <Card className="p-6 text-center border-blue-100">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/20 hover:border-cyan-300/40 transition-all duration-300">
               <CardContent className="p-0">
-                <Icon name="Truck" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Быстрая доставка</h3>
-                <p className="text-gray-600 text-sm">В течение 2 часов по городу</p>
+                <Icon name="Ship" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-3 text-white text-lg">Морская скорость</h3>
+                <p className="text-slate-300 text-sm">В течение 2 часов по городу</p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center border-blue-100">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/20 hover:border-cyan-300/40 transition-all duration-300">
               <CardContent className="p-0">
-                <Icon name="Phone" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Заказ по телефону</h3>
-                <p className="text-gray-600 text-sm">+7 (978) 123-45-67</p>
+                <Icon name="Phone" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-3 text-white text-lg">Прямая связь</h3>
+                <p className="text-slate-300 text-sm">+7 (978) 123-45-67</p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center border-blue-100">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/20 hover:border-cyan-300/40 transition-all duration-300">
               <CardContent className="p-0">
-                <Icon name="CreditCard" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Оплата</h3>
-                <p className="text-gray-600 text-sm">Наличными или картой</p>
+                <Icon name="CreditCard" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-3 text-white text-lg">Удобная оплата</h3>
+                <p className="text-slate-300 text-sm">Наличными или картой</p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center border-blue-100">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700 to-slate-800 border-cyan-400/20 hover:border-cyan-300/40 transition-all duration-300">
               <CardContent className="p-0">
-                <Icon name="MapPin" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Зона доставки</h3>
-                <p className="text-gray-600 text-sm">Весь Севастополь</p>
+                <Icon name="Anchor" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-3 text-white text-lg">Морской порт</h3>
+                <p className="text-slate-300 text-sm">Весь Севастополь</p>
               </CardContent>
             </Card>
           </div>
 
-          <div className="mt-12 text-center">
-            <div className="bg-blue-50 rounded-lg p-8 max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold mb-4">Закажите прямо сейчас</h3>
-              <p className="text-gray-600 mb-6">
-                Минимальный заказ - 2 бутыли 19л. Бесплатная доставка от 5 бутылей.
+          <div className="mt-16 text-center">
+            <div className="bg-gradient-to-r from-slate-700/80 to-slate-800/80 backdrop-blur-sm rounded-2xl p-10 max-w-3xl mx-auto border border-cyan-400/20">
+              <h3 className="text-3xl font-bold mb-6 text-white">Закажите прямо сейчас</h3>
+              <p className="text-slate-300 mb-8 text-lg leading-relaxed">
+                Минимальный заказ - 2 бутыли 19л. Бесплатная доставка от 5 бутылей.<br/>
+                Океанское качество прямо к вашему порогу.
               </p>
-              <Button size="lg" className="text-lg px-8">
-                <Icon name="Phone" size={20} className="mr-2" />
+              <Button size="lg" className="text-xl px-12 py-4 bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 shadow-2xl border-0">
+                <Icon name="Phone" size={24} className="mr-3" />
                 +7 (978) 123-45-67
               </Button>
             </div>
@@ -264,40 +274,40 @@ export default function Index() {
       </section>
 
       {/* Contacts Section */}
-      <section id="contacts" className="py-16 px-4 bg-gray-50">
+      <section id="contacts" className="py-20 px-4 bg-gradient-to-b from-blue-900/50 to-slate-900">
         <div className="container mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Контакты</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-5xl font-bold text-white mb-6">Контакты</h2>
+            <p className="text-xl text-slate-200 max-w-3xl mx-auto">
               Свяжитесь с нами любым удобным способом
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            <Card className="p-6 text-center">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
               <CardContent className="p-0">
-                <Icon name="Phone" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Телефон</h3>
-                <p className="text-gray-600">+7 (978) 123-45-67</p>
-                <p className="text-gray-600">Ежедневно с 8:00 до 22:00</p>
+                <Icon name="Phone" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-4 text-white text-xl">Телефон</h3>
+                <p className="text-slate-300 text-lg mb-2">+7 (978) 123-45-67</p>
+                <p className="text-slate-400">Ежедневно с 8:00 до 22:00</p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
               <CardContent className="p-0">
-                <Icon name="Mail" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Email</h3>
-                <p className="text-gray-600">info@sevastopol-water.ru</p>
-                <p className="text-gray-600">Ответим в течение часа</p>
+                <Icon name="Mail" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-4 text-white text-xl">Email</h3>
+                <p className="text-slate-300 text-lg mb-2">info@sevastopol-water.ru</p>
+                <p className="text-slate-400">Ответим в течение часа</p>
               </CardContent>
             </Card>
 
-            <Card className="p-6 text-center">
+            <Card className="p-8 text-center bg-gradient-to-b from-slate-700/80 to-slate-800/80 border-cyan-400/30 backdrop-blur-sm">
               <CardContent className="p-0">
-                <Icon name="MapPin" className="text-primary mx-auto mb-4" size={40} />
-                <h3 className="font-semibold mb-2">Адрес</h3>
-                <p className="text-gray-600">г. Севастополь</p>
-                <p className="text-gray-600">ул. Производственная, 15</p>
+                <Icon name="MapPin" className="text-cyan-400 mx-auto mb-6" size={48} />
+                <h3 className="font-semibold mb-4 text-white text-xl">Адрес</h3>
+                <p className="text-slate-300 text-lg mb-2">г. Севастополь</p>
+                <p className="text-slate-300">ул. Морская, 15</p>
               </CardContent>
             </Card>
           </div>
@@ -305,14 +315,14 @@ export default function Index() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-white py-8 px-4">
+      <footer className="bg-slate-900 border-t border-cyan-400/20 text-white py-12 px-4">
         <div className="container mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-2 mb-4 md:mb-0">
-              <Icon name="Droplets" className="text-primary" size={24} />
-              <span className="text-xl font-bold">Источник Севастополя</span>
+            <div className="flex items-center space-x-3 mb-6 md:mb-0">
+              <Icon name="Waves" className="text-cyan-400" size={28} />
+              <span className="text-2xl font-bold">Источник Севастополя</span>
             </div>
-            <p className="text-gray-400">
+            <p className="text-slate-400 text-lg">
               © 2024 Источник Севастополя. Все права защищены.
             </p>
           </div>
